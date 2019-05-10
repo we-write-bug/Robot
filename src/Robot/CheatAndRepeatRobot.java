@@ -1,24 +1,24 @@
 package Robot;
 
-
-public class RepeatRobot extends Robot {
+public class CheatAndRepeatRobot extends Robot {
     boolean isFirstRound = true;
     int rememberLast;
 
-    public RepeatRobot(){
-        this.name = "RepeatedRobot";
+    public CheatAndRepeatRobot() {
+        this.name = "CheatAndRepeatRobot";
     }
-    public int calculate(int oppo){
+
+    //第一轮欺骗，然后复读
+    public int calculate(int oppo) {
         int result;
-        if (isFirstRound){
+        if (isFirstRound) {
             this.rememberLast = oppo;
             this.isFirstRound = false;
-            result = 1;
-        }else{
+            result = 0;
+        } else {
             result = rememberLast;
             this.rememberLast = oppo;
         }
         return result;
     }
-
 }
